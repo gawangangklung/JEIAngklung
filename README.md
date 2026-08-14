@@ -1,2 +1,0 @@
-# JEIAngklung
-Jawara Entertainment Indonesia
