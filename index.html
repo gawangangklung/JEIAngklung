@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="JEI Angklung — musik bambu Sunda dalam harmoni masa kini." />
+  <title>JEI Angklung | Harmoni Bambu Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#27171a; --wine:#40131a; --maroon:#7a1f2b; --gold:#d8a946; --gold-light:#f3c969; --cream:#f8f1e7; --paper:#fffdf9; --muted:#5d4a4c; --white:#fff; --shadow:0 18px 45px rgba(64,19,26,.16); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:"DM Sans",Arial,sans-serif; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; width:100%; object-fit:cover; }
+    .container { width:min(1140px,calc(100% - 40px)); margin:auto; }
+
+    .nav { position:fixed; inset:0 0 auto; z-index:20; background:rgba(64,19,26,.97); backdrop-filter:blur(10px); color:var(--white); border-bottom:1px solid rgba(255,255,255,.14); }
+    .nav-wrap { height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:11px; font-family:"Playfair Display",serif; font-size:1.35rem; letter-spacing:.02em; color:var(--white); white-space:nowrap; }
+    .brand-mark { width:34px; height:34px; border:2px solid var(--gold); border-radius:50% 50% 45% 45%; display:grid; place-items:center; color:var(--gold); font-family:Georgia,serif; font-size:1.15rem; }
+    .nav-actions { display:flex; align-items:center; gap:17px; }
+    .nav-links { display:flex; align-items:center; gap:22px; font-size:.88rem; font-weight:600; }
+    .nav-links a { color:rgba(255,255,255,.95); transition:.2s; }
+    .nav-links a:hover { color:var(--gold-light); }
+    .nav-cta { border:1px solid var(--gold); color:var(--gold-light)!important; padding:8px 13px; border-radius:99px; }
+    .language-switcher { display:flex; align-items:center; border:1px solid rgba(255,255,255,.32); border-radius:99px; overflow:hidden; font-size:.75rem; font-weight:700; }
+    .language-switcher button { appearance:none; border:0; padding:7px 9px; color:rgba(255,255,255,.78); background:transparent; cursor:pointer; font:inherit; transition:.2s; }
+    .language-switcher button.active { background:var(--gold); color:var(--wine); }
+    .language-switcher button:hover:not(.active) { color:var(--gold-light); }
+
+    .hero { min-height:720px; display:grid; align-items:center; position:relative; overflow:hidden; color:var(--white); background:linear-gradient(90deg,rgba(64,19,26,.96) 0%,rgba(91,23,31,.84) 49%,rgba(64,19,26,.48) 100%),url("1.jpeg") center/cover; }
+    .hero::after { content:""; position:absolute; inset:auto -12% -160px; height:380px; background:var(--cream); border-radius:50% 50% 0 0 / 18% 18% 0 0; }
+    .hero-content { padding-top:115px; position:relative; z-index:1; max-width:750px; }
+    .eyebrow { display:inline-flex; gap:9px; align-items:center; color:var(--gold-light); text-transform:uppercase; letter-spacing:.18em; font-size:.74rem; font-weight:700; }
+    .eyebrow::before { content:""; width:28px; height:1px; background:currentColor; }
+    .eyebrow-dark { color:#9a2e37; }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; line-height:1.1; margin:0; }
+    h1 { font-size:clamp(3.2rem,7vw,6.7rem); margin:14px 0 18px; letter-spacing:-.04em; color:var(--white); }
+    .hero p { max-width:570px; padding:13px 16px; border-left:4px solid var(--gold); border-radius:0 8px 8px 0; background:rgba(46,10,15,.82); color:var(--white); text-shadow:0 1px 2px rgba(0,0,0,.5); font-size:1.1rem; font-weight:500; margin:0 0 29px; }
+    .button { display:inline-block; padding:13px 22px; border-radius:99px; font-weight:700; transition:transform .2s,background .2s; }
+    .button:hover { transform:translateY(-2px); }
+    .button-primary { background:var(--gold); color:var(--ink); }
+    .button-outline { border:1px solid rgba(255,255,255,.9); color:var(--white); background:rgba(46,10,15,.48); margin-left:10px; }
+
+    section { padding:95px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:25px; margin-bottom:36px; }
+    .section-head h2 { font-size:clamp(2.25rem,4vw,3.7rem); color:var(--maroon); }
+    .section-head p { max-width:470px; color:var(--muted); margin:0; }
+
+    .about { background:var(--paper); }
+    .about-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:72px; align-items:center; }
+    .photo-frame { position:relative; }
+    .photo-frame img { height:460px; border-radius:180px 180px 16px 16px; box-shadow:var(--shadow); }
+    .photo-badge { position:absolute; right:-24px; bottom:30px; width:156px; height:156px; display:grid; place-items:center; text-align:center; border-radius:50%; background:var(--gold); color:var(--wine); font-size:.8rem; font-weight:700; transform:rotate(10deg); }
+    .about-copy h2 { color:var(--maroon); font-size:clamp(2.25rem,4vw,3.7rem); margin:12px 0 22px; }
+    .about-copy p { color:var(--muted); margin:0 0 17px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #ead8d2; margin-top:28px; padding-top:22px; }
+    .stat strong { display:block; color:var(--maroon); font-family:"Playfair Display",serif; font-size:2rem; }
+    .stat span { font-size:.78rem; color:var(--muted); }
+
+    .programs { background:var(--maroon); color:var(--white); }
+    .programs .section-head h2 { color:var(--white); }
+    .programs .section-head p { color:rgba(255,255,255,.86); }
+    .program-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .program-card { min-height:245px; padding:28px; border:1px solid rgba(255,255,255,.24); border-radius:12px; background:rgba(46,10,15,.16); transition:.25s; }
+    .program-card:hover { transform:translateY(-7px); background:rgba(216,169,70,.16); }
+    .program-icon { display:grid; place-items:center; width:49px; height:49px; border-radius:50%; background:var(--gold); color:var(--wine); font-size:1.35rem; }
+    .program-card h3 { margin:25px 0 9px; font-size:1.65rem; color:var(--white); }
+    .program-card p { margin:0; color:rgba(255,255,255,.88); font-size:.94rem; }
+
+    .gallery { background:var(--cream); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:210px; gap:14px; }
+    .gallery-item { overflow:hidden; border-radius:12px; position:relative; background:#d5beb8; }
+    .gallery-item:nth-child(1) { grid-row:span 2; }
+    .gallery-item:nth-child(4) { grid-column:span 2; }
+    .gallery-item img { height:100%; transition:transform .45s; }
+    .gallery-item:hover img { transform:scale(1.08); }
+    .gallery-item span { position:absolute; inset:auto 0 0; padding:22px 15px 14px; color:var(--white); font-size:.88rem; font-weight:700; background:linear-gradient(transparent,rgba(46,10,15,.82)); width:100%; }
+    .gallery-note { margin:20px 0 0; font-size:.86rem; color:var(--muted); }
+
+    .video { background:var(--wine); color:var(--white); }
+    .video-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; align-items:center; }
+    .video h2 { font-size:clamp(2.25rem,4vw,3.7rem); margin:13px 0 18px; color:var(--white); }
+    .video p { color:rgba(255,255,255,.86); }
+    .youtube-box { aspect-ratio:16/9; border-radius:15px; overflow:hidden; box-shadow:0 22px 45px rgba(0,0,0,.3); background:#25090d; }
+    .youtube-box iframe { width:100%; height:100%; border:0; }
+    .video-small { display:inline-block; margin-top:8px; color:var(--gold-light); font-weight:700; }
+    .video-small:hover { color:var(--white); }
+
+    .contact { background:var(--paper); }
+    .contact-box { padding:clamp(28px,5vw,58px); border-radius:18px; color:var(--white); background:linear-gradient(115deg,rgba(64,19,26,.98),rgba(122,31,43,.91)),url("2.jpeg") center/cover; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .contact-box h2 { color:var(--white); font-size:clamp(2rem,4vw,3.5rem); margin:10px 0 0; }
+    .contact-box .eyebrow { color:var(--gold-light); }
+    .contact-box .button { white-space:nowrap; }
+
+    footer { background:#2c0d13; color:rgba(255,255,255,.86); padding:28px 0; }
+    .footer-wrap { display:flex; justify-content:space-between; gap:20px; align-items:center; font-size:.85rem; }
+    .socials { display:flex; gap:17px; font-weight:700; }
+    .socials a { color:rgba(255,255,255,.94); }
+    .socials a:hover { color:var(--gold-light); }
+
+    @media (max-width:950px) { .nav-links { display:none; } }
+    @media (max-width:800px) {
+      .hero { min-height:650px; background:linear-gradient(90deg,rgba(64,19,26,.95),rgba(91,23,31,.71)),url("1.jpeg") center/cover; }
+      .about-grid,.video-grid { grid-template-columns:1fr; gap:38px; }
+      .photo-frame { max-width:500px; }
+      .program-grid { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:180px; }
+      .gallery-item:nth-child(4) { grid-column:span 1; }
+      .section-head,.contact-box { align-items:flex-start; flex-direction:column; }
+      .footer-wrap { flex-direction:column; align-items:flex-start; }
+    }
+    @media (max-width:450px) {
+      .container { width:min(100% - 30px,1140px); }
+      .brand { font-size:1.12rem; }
+      .hero-content { padding-top:115px; }
+      .hero p { font-size:1rem; padding:12px 13px; }
+      .button-outline { display:none; }
+      .photo-frame img { height:390px; }
+      .photo-badge { right:-7px; width:125px; height:125px; }
+      .stats { gap:10px; }
+      .gallery-grid { grid-auto-rows:145px; gap:9px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-wrap">
+      <a class="brand" href="#beranda" aria-label="JEI Angklung beranda"><span class="brand-mark">J</span> JEI Angklung</a>
+      <div class="nav-actions">
+        <nav class="nav-links" aria-label="Navigasi utama">
+          <a href="#tentang" data-i18n="navAbout">Tentang</a>
+          <a href="#program" data-i18n="navProgram">Program</a>
+          <a href="#galeri" data-i18n="navGallery">Galeri</a>
+          <a href="#video" data-i18n="navVideo">Video</a>
+          <a class="nav-cta" href="#kontak" data-i18n="navContact">Hubungi Kami</a>
+        </nav>
+        <div class="language-switcher" role="group" aria-label="Pilih bahasa">
+          <button type="button" class="active" data-lang="id" aria-pressed="true">ID</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-content">
+        <span class="eyebrow" data-i18n="heroLocation">Bandung · Indonesia</span>
+        <h1 data-i18n="heroTitle">Harmoni Bambu,<br />Semangat Nusantara.</h1>
+        <p data-i18n="heroText">JEI Angklung menghadirkan energi musik tradisional Indonesia dalam pertunjukan yang hangat, modern, dan tak terlupakan.</p>
+        <a class="button button-primary" href="#video" data-i18n="heroPrimary">Tonton Penampilan</a>
+        <a class="button button-outline" href="#tentang" data-i18n="heroSecondary">Kenal JEI Angklung</a>
+      </div>
+    </section>
+
+    <section class="about" id="tentang">
+      <div class="container about-grid">
+        <div class="photo-frame"><img src="2.jpeg" alt="Kegiatan JEI Angklung" data-i18n-alt="aboutImageAlt" /><div class="photo-badge" data-i18n="photoBadge">TRADISI<br />YANG TERUS<br />BERBUNYI</div></div>
+        <div class="about-copy">
+          <span class="eyebrow eyebrow-dark" data-i18n="aboutEyebrow">Tentang Kami</span>
+          <h2 data-i18n="aboutTitle">Merawat tradisi, menciptakan resonansi baru.</h2>
+          <p data-i18n="aboutText1">JEI Angklung adalah ruang kolaborasi bagi generasi muda untuk mengenal, memainkan, dan memperkenalkan kekayaan bunyi bambu Indonesia kepada dunia.</p>
+          <p data-i18n="aboutText2">Melalui aransemen kreatif, gerak, serta interaksi dengan penonton, setiap penampilan kami menjadi perayaan budaya yang hidup.</p>
+          <div class="stats"><div class="stat"><strong>2013</strong><span data-i18n="stat1">Mulai berkarya</span></div><div class="stat"><strong>100+</strong><span data-i18n="stat2">Pertunjukan</span></div><div class="stat"><strong>1</strong><span data-i18n="stat3">Irama Nusantara</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="programs" id="program">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow" data-i18n="programEyebrow">Apa yang kami lakukan</span><h2 data-i18n="programTitle">Musik, edukasi, dan kolaborasi.</h2></div><p data-i18n="programIntro">Dari panggung festival hingga ruang belajar, kami membangun pengalaman angklung yang inklusif dan penuh energi.</p></div>
+        <div class="program-grid">
+          <article class="program-card"><div class="program-icon">♫</div><h3 data-i18n="card1Title">Pertunjukan</h3><p data-i18n="card1Text">Penampilan angklung dinamis untuk festival, acara institusi, pernikahan, hingga kegiatan budaya.</p></article>
+          <article class="program-card"><div class="program-icon">◌</div><h3 data-i18n="card2Title">Workshop</h3><p data-i18n="card2Text">Belajar bermain angklung dengan metode kolaboratif untuk sekolah, komunitas, dan perusahaan.</p></article>
+          <article class="program-card"><div class="program-icon">✦</div><h3 data-i18n="card3Title">Kolaborasi</h3><p data-i18n="card3Text">Menghubungkan bunyi angklung dengan berbagai genre, seniman, dan gagasan kreatif masa kini.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="galeri">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow eyebrow-dark" data-i18n="galleryEyebrow">Dokumentasi</span><h2 data-i18n="galleryTitle">Potret perjalanan kami.</h2></div><p data-i18n="galleryIntro">Ruang untuk menampilkan momen panggung, latihan, workshop, dan kebersamaan keluarga JEI Angklung.</p></div>
+        <div class="gallery-grid">
+          <a class="gallery-item" href="1.jpeg" target="_blank" aria-label="Lihat foto kegiatan 1"><img src="1.jpeg" alt="Kegiatan JEI Angklung 1" /><span data-i18n="gallery1">Panggung & pertunjukan</span></a>
+          <a class="gallery-item" href="2.jpeg" target="_blank" aria-label="Lihat foto kegiatan 2"><img src="2.jpeg" alt="Kegiatan JEI Angklung 2" /><span data-i18n="gallery2">Energi penonton</span></a>
+          <a class="gallery-item" href="3.jpeg" target="_blank" aria-label="Lihat foto kegiatan 3"><img src="3.jpeg" alt="Kegiatan JEI Angklung 3" /><span data-i18n="gallery3">Kolaborasi kreatif</span></a>
+          <a class="gallery-item" href="4.jpeg" target="_blank" aria-label="Lihat foto kegiatan 4"><img src="4.jpeg" alt="Kegiatan JEI Angklung 4" /><span data-i18n="gallery4">Ruang ekspresi budaya</span></a>
+          <a class="gallery-item" href="5.jpeg" target="_blank" aria-label="Lihat foto kegiatan 5"><img src="5.jpeg" alt="Kegiatan JEI Angklung 5" /><span data-i18n="gallery5">Musik yang menyatukan</span></a>
+        </div>
+        <p class="gallery-note" data-i18n="galleryNote">Foto galeri dimuat dari file 1.jpeg hingga 5.jpeg yang berada dalam folder yang sama dengan index.html.</p>
+      </div>
+    </section>
+
+    <section class="video" id="video">
+      <div class="container video-grid">
+        <div><span class="eyebrow" data-i18n="videoEyebrow">JEI di layar</span><h2 data-i18n="videoTitle">Dengarkan resonansi kami.</h2><p data-i18n="videoText">Bagian ini siap untuk video unggulan dari kanal YouTube JEI Angklung—baik dokumentasi pertunjukan, video musik, maupun liputan kegiatan.</p><a class="video-small" href="https://www.youtube.com/@jeiangklungofficial" target="_blank" rel="noopener" data-i18n="videoLink">Kunjungi kanal YouTube →</a></div>
+        <div class="youtube-box">
+          <iframe
+            src="https://www.youtube.com/embed/hrEwt8ORVOE"
+            title="Video YouTube JEI Angklung"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="container"><div class="contact-box"><div><span class="eyebrow" data-i18n="contactEyebrow">Mari berkolaborasi</span><h2 data-i18n="contactTitle">Undang JEI Angklung<br />ke acara Anda.</h2></div><a class="button button-primary" href="https://wa.me/6280000000000" target="_blank" rel="noopener" data-i18n="contactButton">Hubungi via WhatsApp</a></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-wrap"><span data-i18n="footerText">© 2026 JEI Angklung. Harmoni untuk Indonesia.</span><div class="socials"><a href="https://www.instagram.com/jeiangklung/?hl=en" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@jeiangklungofficial" target="_blank" rel="noopener">YouTube</a></div></div></footer>
+
+  <script>
+    const translations = {
+      id: {
+        pageTitle: 'JEI Angklung | Harmoni Bambu Indonesia', navAbout: 'Tentang', navProgram: 'Program', navGallery: 'Galeri', navVideo: 'Video', navContact: 'Hubungi Kami',
+        heroLocation: 'Bandung · Indonesia', heroTitle: 'Harmoni Bambu,<br>Semangat Nusantara.', heroText: 'JEI Angklung menghadirkan energi musik tradisional Indonesia dalam pertunjukan yang hangat, modern, dan tak terlupakan.', heroPrimary: 'Tonton Penampilan', heroSecondary: 'Kenal JEI Angklung',
+        photoBadge: 'TRADISI<br>YANG TERUS<br>BERBUNYI', aboutEyebrow: 'Tentang Kami', aboutTitle: 'Merawat tradisi, menciptakan resonansi baru.', aboutText1: 'JEI Angklung adalah ruang kolaborasi bagi generasi muda untuk mengenal, memainkan, dan memperkenalkan kekayaan bunyi bambu Indonesia kepada dunia.', aboutText2: 'Melalui aransemen kreatif, gerak, serta interaksi dengan penonton, setiap penampilan kami menjadi perayaan budaya yang hidup.', aboutImageAlt: 'Kegiatan JEI Angklung', stat1: 'Mulai berkarya', stat2: 'Pertunjukan', stat3: 'Irama Nusantara',
+        programEyebrow: 'Apa yang kami lakukan', programTitle: 'Musik, edukasi, dan kolaborasi.', programIntro: 'Dari panggung festival hingga ruang belajar, kami membangun pengalaman angklung yang inklusif dan penuh energi.', card1Title: 'Pertunjukan', card1Text: 'Penampilan angklung dinamis untuk festival, acara institusi, pernikahan, hingga kegiatan budaya.', card2Title: 'Workshop', card2Text: 'Belajar bermain angklung dengan metode kolaboratif untuk sekolah, komunitas, dan perusahaan.', card3Title: 'Kolaborasi', card3Text: 'Menghubungkan bunyi angklung dengan berbagai genre, seniman, dan gagasan kreatif masa kini.',
+        galleryEyebrow: 'Dokumentasi', galleryTitle: 'Potret perjalanan kami.', galleryIntro: 'Ruang untuk menampilkan momen panggung, latihan, workshop, dan kebersamaan keluarga JEI Angklung.', gallery1: 'Panggung & pertunjukan', gallery2: 'Energi penonton', gallery3: 'Kolaborasi kreatif', gallery4: 'Ruang ekspresi budaya', gallery5: 'Musik yang menyatukan', galleryNote: 'Foto galeri dimuat dari file 1.jpeg hingga 5.jpeg yang berada dalam folder yang sama dengan index.html.',
+        videoEyebrow: 'JEI di layar', videoTitle: 'Dengarkan resonansi kami.', videoText: 'Bagian ini siap untuk video unggulan dari kanal YouTube JEI Angklung—baik dokumentasi pertunjukan, video musik, maupun liputan kegiatan.', videoLink: 'Kunjungi kanal YouTube →',
+        contactEyebrow: 'Mari berkolaborasi', contactTitle: 'Undang JEI Angklung<br>ke acara Anda.', contactButton: 'Hubungi via WhatsApp', footerText: '© 2026 JEI Angklung. Harmoni untuk Indonesia.'
+      },
+      en: {
+        pageTitle: 'JEI Angklung | Indonesian Bamboo Harmony', navAbout: 'About', navProgram: 'Programs', navGallery: 'Gallery', navVideo: 'Video', navContact: 'Contact Us',
+        heroLocation: 'Bandung · Indonesia', heroTitle: 'Bamboo Harmony,<br>Nusantara Spirit.', heroText: 'JEI Angklung brings the energy of Indonesian traditional music to warm, modern, and unforgettable performances.', heroPrimary: 'Watch Our Performance', heroSecondary: 'Meet JEI Angklung',
+        photoBadge: 'TRADITION<br>THAT KEEPS<br>RESONATING', aboutEyebrow: 'About Us', aboutTitle: 'Preserving tradition, creating new resonance.', aboutText1: 'JEI Angklung is a collaborative space for young people to discover, play, and introduce the rich sound of Indonesian bamboo to the world.', aboutText2: 'Through creative arrangements, movement, and interaction with audiences, every performance becomes a living celebration of culture.', aboutImageAlt: 'JEI Angklung activity', stat1: 'Creating since', stat2: 'Performances', stat3: 'Nusantara rhythm',
+        programEyebrow: 'What we do', programTitle: 'Music, education, and collaboration.', programIntro: 'From festival stages to learning spaces, we create inclusive and energetic angklung experiences.', card1Title: 'Performances', card1Text: 'Dynamic angklung performances for festivals, institutional events, weddings, and cultural programs.', card2Title: 'Workshops', card2Text: 'Collaborative angklung learning for schools, communities, and organizations.', card3Title: 'Collaboration', card3Text: 'Connecting angklung sounds with diverse genres, artists, and contemporary creative ideas.',
+        galleryEyebrow: 'Documentation', galleryTitle: 'Moments from our journey.', galleryIntro: 'A space for stage moments, rehearsals, workshops, and the togetherness of the JEI Angklung family.', gallery1: 'Stages & performances', gallery2: 'Audience energy', gallery3: 'Creative collaboration', gallery4: 'A space for cultural expression', gallery5: 'Music that brings us together', galleryNote: 'Gallery photos are loaded from 1.jpeg through 5.jpeg in the same folder as index.html.',
+        videoEyebrow: 'JEI on screen', videoTitle: 'Listen to our resonance.', videoText: 'This section is ready for a featured video from the JEI Angklung YouTube channel, including performance documentation, music videos, or activity coverage.', videoLink: 'Visit our YouTube channel →',
+        contactEyebrow: 'Let us collaborate', contactTitle: 'Invite JEI Angklung<br>to your event.', contactButton: 'Contact us via WhatsApp', footerText: '© 2026 JEI Angklung. Harmony for Indonesia.'
+      }
+    };
+
+    function setLanguage(lang) {
+      const dictionary = translations[lang];
+      document.documentElement.lang = lang;
+      document.title = dictionary.pageTitle;
+      document.querySelectorAll('[data-i18n]').forEach((element) => { element.innerHTML = dictionary[element.dataset.i18n]; });
+      document.querySelectorAll('[data-i18n-alt]').forEach((element) => { element.alt = dictionary[element.dataset.i18nAlt]; });
+      document.querySelectorAll('[data-lang]').forEach((button) => {
+        const isActive = button.dataset.lang === lang;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', isActive);
+      });
+      localStorage.setItem('jei-language', lang);
+    }
+
+    document.querySelectorAll('[data-lang]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+    setLanguage(localStorage.getItem('jei-language') || 'id');
+  </script>
+</body>
+</html>
